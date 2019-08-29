@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.input.KeyCodeCombination?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.MainController">
+    <top>
+        <MenuBar BorderPane.alignment="CENTER">
+            <menus>
+                <Menu mnemonicParsing="false" text="%menu.file">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#onSettings" text="%menu.file.settings">
+                        <accelerator>
+                            <KeyCodeCombination alt="UP" code="P" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                        </accelerator>
+                    </MenuItem>
+                        <MenuItem mnemonicParsing="false" onAction="#saveFile" text="%menu.file.save">
+                            <accelerator>
+                                <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                            </accelerator>
+                        </MenuItem>
+                        <SeparatorMenuItem mnemonicParsing="false"  />
+                        <MenuItem mnemonicParsing="false" text="%menu.file.quit" onAction="#onExit">
+                            <accelerator>
+                                <KeyCodeCombination alt="UP" code="W" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                            </accelerator>
+                        </MenuItem>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="%menu.edit">
+                    <items>
+                        <RadioMenuItem fx:id="s_t1" mnemonicParsing="false" onAction="#onPartChanged" selected="true" text="%menu.edit.task1">
+                            <toggleGroup>
+                                <ToggleGroup fx:id="menuEditPartSelector" />
+                            </toggleGroup>
+                            <accelerator>
+                                <KeyCodeCombination alt="UP" code="DIGIT1" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                            </accelerator>
+                        </RadioMenuItem>
+                        <RadioMenuItem fx:id="s_t2" mnemonicParsing="false" onAction="#onPartChanged" text="%menu.edit.task2" toggleGroup="$menuEditPartSelector">
+                            <accelerator>
+                                <KeyCodeCombination alt="UP" code="DIGIT2" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                            </accelerator>
+                        </RadioMenuItem>
+                        <RadioMenuItem fx:id="s_t3" mnemonicParsing="false" onAction="#onPartChanged" text="%menu.edit.task3" toggleGroup="$menuEditPartSelector">
+                            <accelerator>
+                                <KeyCodeCombination alt="UP" code="DIGIT3" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                            </accelerator>
+                        </RadioMenuItem>
+                        <RadioMenuItem fx:id="s_t4" mnemonicParsing="false" onAction="#onPartChanged" text="%menu.edit.task4" toggleGroup="$menuEditPartSelector">
+                            <accelerator>
+                                <KeyCodeCombination alt="UP" code="DIGIT4" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                            </accelerator>
+                        </RadioMenuItem>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="%menu.help">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#onHelp" text="%menu.help.help">
+                            <accelerator>
+                                <KeyCodeCombination alt="UP" code="H" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                            </accelerator>
+                        </MenuItem>
+                        <MenuItem mnemonicParsing="false" onAction="#onAbout" text="%menu.help.about">
+                            <accelerator>
+                                <KeyCodeCombination alt="DOWN" code="H" control="UP" meta="UP" shift="UP" shortcut="UP" />
+                            </accelerator>
+                        </MenuItem>
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+    <center>
+        <VBox fx:id="mainContent" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+            <children>
+                <fx:include fx:id="t1" source="/sample/view/Task1.fxml" visible="false"/>
+            </children>
+        </VBox>
+    </center>
+</BorderPane>
